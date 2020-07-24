@@ -10,21 +10,21 @@
             @endforeach
         </ul>
     @endif
-    {!! Form::open(['action' => 'ContactController@store','method'=>'POST']) !!}
+    {!! Form::open(['action' => ['ContactController@update',$data->id],'method'=>'PUT'])!!}
         <div class="col-md-6">
             <div class="form-group">
                 {!! Form::label('NAME')!!}
-                {!! Form::text('name',null,["class"=>"form-control"])!!}
+                {!! Form::text('name',$data->name,["class"=>"form-control"])!!}
             </div>
             <div class="form-group">
                 {!! Form::label('EMAIL')!!}
-                {!! Form::text('email',null,["class"=>"form-control"])!!}
+                {!! Form::text('email',$data->email,["class"=>"form-control"])!!}
             </div>
             <div class="form-group">
                 {!! Form::label('PHONE')!!}
-                {!! Form::text('phone',null,["class"=>"form-control"])!!}
+                {!! Form::text('phone',$data->phone,["class"=>"form-control"])!!}
             </div>
-            <input type="submit" value="บันทึก" class="btn btn-primary">
+            <input type="submit" value="อัพเดต" class="btn btn-primary">
             <a href="/contact" class="btn btn-success">กลับ</a>
         </div>
     {!! Form::close() !!}
